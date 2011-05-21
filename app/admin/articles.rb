@@ -23,6 +23,6 @@ ActiveAdmin.register Article do
       links += link_to I18n.t(:destory_link), admin_article_path(f), :method => :delete, :confirm => I18n.t(:destroy_confirm), :class => "delete_link"
       links
     end
-    default_actions :name => 'hoge' # if you use default action
+#    default_actions :name => 'hoge' # if you use default action
   end
 end
