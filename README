@@ -1,0 +1,32 @@
+== Blogg
+
+BloggはActiveAdminの使い方を学習する為のサンプルアプリケーションです
+Blogアプリケーションを作りながら、ActiveAdminでできることできないことを調査していきます
+
+== 環境
+ruby 1.9.2 p180
+rails 3.0.7
+
+activeadmin 0.2.1
+
+== テスト
+
+* rspec
+* cucumber
+で書く為のサンプルを作っていく予定です(予定は予定)
+
+== サンプルを実行するには
+
+<pre>
+git clone https://github.com/namakesugi/blogg.git
+cd blogg
+bundle install
+rake db:create
+rake db:migrate
+guard
+</pre>
+
+access to http://localhost:3000/admin
+id : example@example.com
+pw : password
+
