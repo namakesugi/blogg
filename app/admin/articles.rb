@@ -22,6 +22,29 @@ ActiveAdmin.register Article do
     end
   end
 
+  show do |article|
+    # use partial
+#    render "show", :article => article
+    panel "#{article.title}" do
+      table :for => article do
+        tr :class => "article_slug" do
+          th I18n.t('activerecord.attributes.article.slug')
+          td article.slug
+        end
+        tr :class => "article_category" do
+          th I18n.t('activerecord.attributes.article.category_id')
+          td article.category ? link_to(article.category.name, admin_category_path(article.category_id)) : I18n.t(:unknown)
+        end
+        tr :class => "article_content" do
+          th I18n.t('activerecord.attributes.article.content')
+          td do
+            textarea article.content, :style => 'width:100%;height:200px;'
+          end
+        end
+      end
+    end
+  end
+
   # index and show sidebar
   sidebar I18n.t(:recent_list), :only => [:index,:show] do
     render('/admin/articles/recent', :articles => ::Article.find(:all, :limit => 5, :order => 'updated_at DESC'))

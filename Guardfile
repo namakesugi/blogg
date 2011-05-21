@@ -7,7 +7,7 @@ guard 'bundler' do
   # watch(/^.+\.gemspec/)
 end
 
-guard 'passenger' do
+guard 'passenger',:cli => '--daemonize --port 3000 --environment development', :ping => '/restart' do
   watch('Gemfile.lock')
   watch(/^lib\/.*\.rb$/)
   watch(/^config\/.*\.rb$/)

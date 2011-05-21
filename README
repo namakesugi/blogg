@@ -18,6 +18,8 @@ activeadmin 0.2.1
 == ブログ記事
 
 http://namakesugi.blog42.fc2.com/blog-entry-100.html
+http://namakesugi.blog42.fc2.com/blog-entry-101.html
+http://namakesugi.blog42.fc2.com/blog-entry-102.html
 
 == サンプルを実行するには
 
@@ -27,7 +29,7 @@ cd blogg
 bundle install
 rake db:create
 rake db:migrate
-guard
+guard or rails s
 </pre>
 
 access to http://localhost:3000/admin

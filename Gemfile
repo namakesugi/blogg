@@ -8,7 +8,7 @@ gem 'haml'
 gem 'sass'
 gem 'hpricot'
 
-group :development do
+group :development, :test do
   gem 'passenger'
   gem 'guard-passenger'
 end
@@ -28,6 +28,6 @@ group :test do
   gem 'rb-fsevent', require: false
   gem 'growl', require: false
 #  gem 'fabrication'
-  gem 'forgery'
-  gem 'database_cleaner'
+#  gem 'forgery'
+#  gem 'database_cleaner'
 end

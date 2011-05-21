@@ -1,0 +1,5 @@
+#article
+  %h3= article.title
+  %p= article.slug
+  %p= article.category ? article.category.name : t(:unknown)
+  %textarea= article.content
