@@ -1,0 +1,4 @@
+#recent-list
+  - articles.each do |article|
+    %ul
+      %li= link_to article.title, admin_article_path(article)
