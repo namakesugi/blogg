@@ -1,5 +1,5 @@
 # coding: utf-8
-ActiveAdmin.register Article do
+ActiveAdmin.register Article, :menu_item_name => 'hoge' do
   # filter setting
   filter :title, :html => "class='hoge'"
   filter :category, :as => :check_boxes
@@ -23,8 +23,6 @@ ActiveAdmin.register Article do
   end
 
   show do |article|
-    # use partial
-#    render "show", :article => article
     panel "#{article.title}" do
       table :for => article do
         tr :class => "article_slug" do
@@ -45,10 +43,23 @@ ActiveAdmin.register Article do
     end
   end
 
+  # custom member action
+  member_action :preview do
+    @article = Article.find(params[:id])
+#    render :layout => 'active_admin' # => error
+  end
+  action_item :only => :show do
+    if controller.action_methods.include?("preview")
+      link_to("Preview", preview_admin_article_path(resource))
+    end
+  end
+  action_item :only => :show do
+    if controller.action_methods.include?('new')
+      link_to("New #{active_admin_config.resource_name}", new_resource_path)
+    end
+  end
   # index and show sidebar
   sidebar I18n.t(:recent_list), :only => [:index,:show] do
     render('/admin/articles/recent', :articles => ::Article.find(:all, :limit => 5, :order => 'updated_at DESC'))
   end
-  # Abbreviation
-#  sidebar :recent
 end

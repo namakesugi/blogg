@@ -13,7 +13,7 @@ group :development, :test do
   gem 'guard-passenger'
 end
 
-group :test do
+group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'capybara'
@@ -27,7 +27,7 @@ group :test do
   gem 'rb-inotify', require: false
   gem 'rb-fsevent', require: false
   gem 'growl', require: false
-#  gem 'fabrication'
-#  gem 'forgery'
-#  gem 'database_cleaner'
+  gem 'fabrication'
+  gem 'forgery'
+  gem 'database_cleaner'
 end
